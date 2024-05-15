@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище MagazinDlyaZhivotnyhModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BugReport">
+    <Key>
+      <PropertyRef Name="BugID" />
+    </Key>
+    <Property Name="BugID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Tema" Type="varchar" MaxLength="20" />
+    <Property Name="Opisanie" Type="varchar" MaxLength="50" />
+    <Property Name="Time" Type="datetime" />
+    <Property Name="IsFixed" Type="bit" />
+  </EntityType>
+  <EntityType Name="Korzina">
+    <Key>
+      <PropertyRef Name="KorzinaID" />
+    </Key>
+    <Property Name="KorzinaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="TovarID" Type="int" />
+    <Property Name="Kolichestvo" Type="int" />
+    <Property Name="ObshchayaStoimostt" Type="int" />
+  </EntityType>
+  <EntityType Name="Tovari">
+    <Key>
+      <PropertyRef Name="TovarID" />
+    </Key>
+    <Property Name="TovarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NazvanieTovara" Type="varchar" MaxLength="20" />
+    <Property Name="Opisanie" Type="varchar" MaxLength="60" />
+    <Property Name="Stoimostt" Type="int" />
+    <Property Name="Izobrazhenie" Type="image" />
+    <Property Name="ShowType" Type="int" />
+    <Property Name="Creator" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="TypeUser" Type="int" />
+    <Property Name="Avatarka" Type="image" />
+  </EntityType>
+  <EntityContainer Name="Хранилище MagazinDlyaZhivotnyhModelContainer">
+    <EntitySet Name="BugReport" EntityType="Self.BugReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Korzina" EntityType="Self.Korzina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovari" EntityType="Self.Tovari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
