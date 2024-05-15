@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище MagazinDlyaZhivotnyhModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BugReport">
+          <Key>
+            <PropertyRef Name="BugID" />
+          </Key>
+          <Property Name="BugID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Tema" Type="varchar" MaxLength="20" />
+          <Property Name="Opisanie" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="datetime" />
+          <Property Name="IsFixed" Type="bit" />
+        </EntityType>
+        <EntityType Name="Korzina">
+          <Key>
+            <PropertyRef Name="KorzinaID" />
+          </Key>
+          <Property Name="KorzinaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="TovarID" Type="int" />
+          <Property Name="Kolichestvo" Type="int" />
+          <Property Name="ObshchayaStoimostt" Type="int" />
+        </EntityType>
+        <EntityType Name="Tovari">
+          <Key>
+            <PropertyRef Name="TovarID" />
+          </Key>
+          <Property Name="TovarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazvanieTovara" Type="varchar" MaxLength="20" />
+          <Property Name="Opisanie" Type="varchar" MaxLength="60" />
+          <Property Name="Stoimostt" Type="int" />
+          <Property Name="Izobrazhenie" Type="image" />
+          <Property Name="ShowType" Type="int" />
+          <Property Name="Creator" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="TypeUser" Type="int" />
+          <Property Name="Avatarka" Type="image" />
+        </EntityType>
+        <EntityContainer Name="Хранилище MagazinDlyaZhivotnyhModelContainer">
+          <EntitySet Name="BugReport" EntityType="Self.BugReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korzina" EntityType="Self.Korzina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tovari" EntityType="Self.Tovari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MagazinDlyaZhivotnyhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tovari">
+          <Key>
+            <PropertyRef Name="TovarID" />
+          </Key>
+          <Property Name="TovarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazvanieTovara" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Stoimostt" Type="Int32" />
+          <Property Name="Izobrazhenie" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ShowType" Type="Int32" />
+          <Property Name="Creator" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TypeUser" Type="Int32" />
+          <Property Name="Avatarka" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="MDZEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tovari" EntityType="Self.Tovari" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Korzina" EntityType="MagazinDlyaZhivotnyhModel.Korzina" />
+          <EntitySet Name="BugReport" EntityType="MagazinDlyaZhivotnyhModel.BugReport" />
+        </EntityContainer>
+        <EntityType Name="Korzina">
+          <Key>
+            <PropertyRef Name="KorzinaID" />
+          </Key>
+          <Property Name="KorzinaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="TovarID" Type="Int32" />
+          <Property Name="Kolichestvo" Type="Int32" />
+          <Property Name="ObshchayaStoimostt" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BugReport">
+          <Key>
+            <PropertyRef Name="BugID" />
+          </Key>
+          <Property Name="BugID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Tema" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
+          <Property Name="IsFixed" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MagazinDlyaZhivotnyhModelContainer" CdmEntityContainer="MDZEntities">
+          <EntitySetMapping Name="Tovari">
+            <EntityTypeMapping TypeName="MagazinDlyaZhivotnyhModel.Tovari">
+              <MappingFragment StoreEntitySet="Tovari">
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="TovarID" ColumnName="TovarID" />
+                <ScalarProperty Name="NazvanieTovara" ColumnName="NazvanieTovara" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="Stoimostt" ColumnName="Stoimostt" />
+                <ScalarProperty Name="Izobrazhenie" ColumnName="Izobrazhenie" />
+                <ScalarProperty Name="ShowType" ColumnName="ShowType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MagazinDlyaZhivotnyhModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Avatarka" ColumnName="Avatarka" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="TypeUser" ColumnName="TypeUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korzina">
+            <EntityTypeMapping TypeName="MagazinDlyaZhivotnyhModel.Korzina">
+              <MappingFragment StoreEntitySet="Korzina">
+                <ScalarProperty Name="ObshchayaStoimostt" ColumnName="ObshchayaStoimostt" />
+                <ScalarProperty Name="Kolichestvo" ColumnName="Kolichestvo" />
+                <ScalarProperty Name="TovarID" ColumnName="TovarID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="KorzinaID" ColumnName="KorzinaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BugReport">
+            <EntityTypeMapping TypeName="MagazinDlyaZhivotnyhModel.BugReport">
+              <MappingFragment StoreEntitySet="BugReport">
+                <ScalarProperty Name="IsFixed" ColumnName="IsFixed" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="Tema" ColumnName="Tema" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BugID" ColumnName="BugID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

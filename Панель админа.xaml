@@ -1,0 +1,25 @@
+﻿<Window x:Class="Индивидуальный_Проект.Панель_админа"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Индивидуальный_Проект"
+        mc:Ignorable="d"
+        Title="Панель админа" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Выберите действие:" VerticalAlignment="Center" Margin="10,0"/>
+            <Button Content="Права админ" Click="Navigation_Button_Click" Margin="5"/>
+            <Button Content="БД Админ" Click="Navigation_Button_Click" Margin="5"/>
+            <Button Content="Баги" Click="Navigation_Button_Click" Margin="5"/>
+        </StackPanel>
+
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        
+    </Grid>
+</Window>
